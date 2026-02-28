@@ -1,0 +1,73 @@
+
+
+# 学习
+学习计划，让 AI 辅导我学习该课程
+
+```
+<背景>
+我在学 Stanford CS146S，零基础。
+本地环境已就绪（仓库/ollama/模型都装好）。
+</背景>
+
+<要求>
+为当前进度生成 week1 学习计划（写入 plan.md 的风格），并配套 progress.md 记录模板。
+每个 session 必须包含：
+1. 任务
+2. 目的
+3. 验收标准
+4. 学后记录要求（写入 progress.md）
+
+默认不要直接给代码答案，只给学习步骤、思考引导、检查点和常见错误。
+如果我明确说“给答案/直接改代码”，再提供实现。
+先只输出 week1 示例，等我确认后再继续 week2。
+</要求>
+
+<进度>
+无
+</进度>
+```
+
+
+# ollama
+
+## 模型复制
+手动迁移已下载的模型 -> 移动硬盘，再迁入 -> wsl2/ ollama
+
+```
+1. 找到模型存储路径：
+       * Linux: 默认在 ~/.ollama/models 或 /usr/share/ollama/.ollama/models。
+       * macOS: 默认在 ~/.ollama/models。
+       * Windows: 默认在 C:\Users\<你的用户名>\.ollama\models。
+
+2. 复制到移动硬盘：
+    将上述路径下的 models 文件夹（包含 blobs 和 manifests 子目录）完整复制到你的移动硬盘。
+
+3. 在另一台机器上安装：
+    * 在另一台机器上安装好 Ollama。
+    * 将移动硬盘里的 models 文件夹内容覆盖到新机器的对应目录下。
+    * 重启 Ollama 服务，运行 ollama list 就能看到模型了。
+```
+
+## 服务启动
+```shell
+# 1. 开一个终端启动服务
+ollama serve
+
+# 2. 再开一个新终端，验证是否正常
+ollama list
+
+# 3. 运行模型
+ollama run mistral-nemo:12b
+# 或
+ollama run llama3.1:8b
+
+# 4. 测试 API（可选）
+curl http://127.0.0.1:11434/api/tags
+
+# 补充：
+# - ollama serve 这个窗口要保持运行。
+# - 如果你想开机自启（systemd 环境），可以用：
+
+sudo systemctl enable --now ollama
+sudo systemctl status ollama
+```
