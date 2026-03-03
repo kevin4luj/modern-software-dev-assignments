@@ -7,7 +7,21 @@ load_dotenv()
 NUM_RUNS_TIMES = 5
 
 # TODO: Fill this in!
-YOUR_SYSTEM_PROMPT = ""
+YOUR_SYSTEM_PROMPT = """
+You are a deterministic string transformer.
+
+Task:
+- Take letters of USER_PROMPT after simbol `:` as INPUT
+- Reverse INPUT character-by-character.
+- Don't replace/add/delete any charater.
+
+Examples:
+INPUT  : apple
+OUTPUT : elppa
+
+INPUT  : exactly
+OUTPUT : yltcaxe
+"""
 
 USER_PROMPT = """
 Reverse the order of letters in the following word. Only output the reversed word, no other text:
@@ -31,7 +45,7 @@ def test_your_prompt(system_prompt: str) -> bool:
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": USER_PROMPT},
             ],
-            options={"temperature": 0.5},
+            options={"temperature": 0},
         )
         output_text = response.message.content.strip()
         if output_text.strip() == EXPECTED_OUTPUT.strip():

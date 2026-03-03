@@ -1,0 +1,17 @@
+[2026-03-04 00:38:39] CMD: ALL_PROXY= all_proxy= HTTP_PROXY= http_proxy= HTTPS_PROXY= https_proxy= OLLAMA_HOST="http://172.20.32.1:11434" python "week1/k_shot_prompting.py"
+Running test 1 of 5
+Expected output: sutatsptth
+Actual output: sattostphttp
+Running test 2 of 5
+Expected output: sutatsptth
+Actual output: sattostphttp
+Running test 3 of 5
+Expected output: sutatsptth
+Actual output: sattostphttp
+Running test 4 of 5
+Expected output: sutatsptth
+Actual output: sattostphttp
+Running test 5 of 5
+Expected output: sutatsptth
+Actual output: sattostphttp
+[2026-03-04 00:38:55] EXIT_CODE: 0
